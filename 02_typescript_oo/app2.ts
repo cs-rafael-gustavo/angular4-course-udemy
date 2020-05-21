@@ -57,11 +57,11 @@ class Pessoa {
     return this.carroPreferido;
   }
 
-  public comprarCarro(carro: any): void {
+  public comprarCarro(carro: Carro): void {
     this.carro = carro;
   }
 
-  public dizerQueCarroTem(): any {
+  public dizerQueCarroTem(): Carro {
     return this.carro;
   }
 }
@@ -78,3 +78,15 @@ let concessionaria = new Concessionaria("Rua Logo Ali", listaDeCarro);
 
 // Exibir lista de carros
 console.log(concessionaria.mostrarListaDeCarros());
+
+// Comprar um carro
+let cliente = new Pessoa("Rafael", "Gol");
+console.log(cliente.dizerCarroPreferido());
+
+concessionaria.mostrarListaDeCarros().map((carro: Carro) => {
+  if (carro["modelo"] == cliente.dizerCarroPreferido()) {
+    cliente.comprarCarro(carro);
+  }
+});
+
+console.log(cliente.dizerQueCarroTem());
