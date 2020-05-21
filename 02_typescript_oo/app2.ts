@@ -1,70 +1,6 @@
-class Carro {
-  private modelo: string;
-  private numeroDePortas: number;
-  private velocidade: number = 0;
-
-  constructor(modelo: string, numeroDePortas: number) {
-    this.modelo = modelo;
-    this.numeroDePortas = numeroDePortas;
-  }
-
-  public acelerar(): void {
-    this.velocidade = this.velocidade + 10;
-  }
-
-  public parar(): void {
-    this.velocidade = 0;
-  }
-
-  public velocidadeAtual(): number {
-    return this.velocidade;
-  }
-}
-
-class Concessionaria {
-  private endereco: string;
-  private listaDeCarros: Array<Carro>;
-
-  constructor(endereco: string, listaDeCarros: Array<Carro>) {
-    this.endereco = endereco;
-    this.listaDeCarros = listaDeCarros;
-  }
-
-  public fornecerEndereco(): string {
-    return this.endereco;
-  }
-
-  public mostrarListaDeCarros(): Array<Carro> {
-    return this.listaDeCarros;
-  }
-}
-
-class Pessoa {
-  private nome: string;
-  private carroPreferido: string;
-  private carro: any;
-
-  constructor(nome: string, carroPreferido: string) {
-    this.nome = nome;
-    this.carroPreferido = carroPreferido;
-  }
-
-  public dizerNome(): string {
-    return this.nome;
-  }
-
-  public dizerCarroPreferido(): string {
-    return this.carroPreferido;
-  }
-
-  public comprarCarro(carro: Carro): void {
-    this.carro = carro;
-  }
-
-  public dizerQueCarroTem(): Carro {
-    return this.carro;
-  }
-}
+import Carro from "./carro";
+import Pessoa from "./pessoa";
+import Concessionaria from "./concessionaria";
 
 // Criar carros
 let carroA = new Carro("Gol", 4);
@@ -80,12 +16,16 @@ let concessionaria = new Concessionaria("Rua Logo Ali", listaDeCarro);
 console.log(concessionaria.mostrarListaDeCarros());
 
 // Comprar um carro
-let cliente = new Pessoa("Rafael", "Gol");
+let cliente = new Pessoa("Rafael", "Ferrari");
 console.log(cliente.dizerCarroPreferido());
 
 concessionaria.mostrarListaDeCarros().map((carro: Carro) => {
   if (carro["modelo"] == cliente.dizerCarroPreferido()) {
     cliente.comprarCarro(carro);
+  } else {
+    console.log(
+      `Modelo ${cliente.dizerCarroPreferido()} não encontrado na Concessionária`
+    );
   }
 });
 

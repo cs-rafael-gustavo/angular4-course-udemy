@@ -1,32 +1,29 @@
 "use strict";
-var Carro = /** @class */ (function () {
-    function Carro(modelo, numeroDePortas) {
-        this.velocidade = 0;
-        this.modelo = modelo;
-        this.numeroDePortas = numeroDePortas;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var carro_1 = __importDefault(require("./carro"));
+var pessoa_1 = __importDefault(require("./pessoa"));
+var concessionaria_1 = __importDefault(require("./concessionaria"));
+// Criar carros
+var carroA = new carro_1.default("Gol", 4);
+var carroB = new carro_1.default("Palio", 4);
+var carroC = new carro_1.default("Camaro", 2);
+// Montar lista de carros da concessionaria
+var listaDeCarro = [carroA, carroB, carroC];
+var concessionaria = new concessionaria_1.default("Rua Logo Ali", listaDeCarro);
+// Exibir lista de carros
+console.log(concessionaria.mostrarListaDeCarros());
+// Comprar um carro
+var cliente = new pessoa_1.default("Rafael", "Ferrari");
+console.log(cliente.dizerCarroPreferido());
+concessionaria.mostrarListaDeCarros().map(function (carro) {
+    if (carro["modelo"] == cliente.dizerCarroPreferido()) {
+        cliente.comprarCarro(carro);
     }
-    Carro.prototype.acelerar = function () {
-        this.velocidade = this.velocidade + 10;
-    };
-    Carro.prototype.parar = function () {
-        this.velocidade = 0;
-    };
-    Carro.prototype.velocidadeAtual = function () {
-        return this.velocidade;
-    };
-    return Carro;
-}());
-var Concessionaria = /** @class */ (function () {
-    function Concessionaria() {
-        this.endereco = "";
+    else {
+        console.log("Modelo " + cliente.dizerCarroPreferido() + " n\u00E3o encontrado na Concession\u00E1ria");
     }
-    Concessionaria.prototype.fornecerEndereco = function () {
-        return this.endereco;
-    };
-    Concessionaria.prototype.mostrarListaDeCarros = function () {
-        return this.listaDeCarro;
-    };
-    return Concessionaria;
-}());
-var concessionaria = new Concessionaria();
-console.log(concessionaria);
+});
+console.log(cliente.dizerQueCarroTem());
