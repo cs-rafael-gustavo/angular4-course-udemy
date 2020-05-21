@@ -16,7 +16,17 @@ var Carro = /** @class */ (function () {
     };
     return Carro;
 }());
-var carroA = new Carro("Punto", 3);
-console.log(carroA);
-carroA.acelerar();
-console.log(carroA);
+var Concessionaria = /** @class */ (function () {
+    function Concessionaria() {
+        this.endereco = "";
+    }
+    Concessionaria.prototype.fornecerEndereco = function () {
+        return this.endereco;
+    };
+    Concessionaria.prototype.mostrarListaDeCarros = function () {
+        return this.listaDeCarro;
+    };
+    return Concessionaria;
+}());
+var concessionaria = new Concessionaria();
+console.log(concessionaria);
