@@ -18,7 +18,7 @@ var PessoaDao = /** @class */ (function () {
         return true;
     };
     PessoaDao.prototype.remover = function (id) {
-        console.log("Lógica de Remover");
+        console.log("L\u00F3gica de Remover - ID: " + id);
         return new Pessoa_1.default("", "");
     };
     PessoaDao.prototype.selecionar = function (id) {
@@ -26,7 +26,7 @@ var PessoaDao = /** @class */ (function () {
         return new Pessoa_1.default("", "");
     };
     PessoaDao.prototype.selecionarTodos = function () {
-        console.log("Lógica de Inserir");
+        console.log("Lógica de Selecionar Todos");
         return [new Pessoa_1.default("", "")];
     };
     return PessoaDao;

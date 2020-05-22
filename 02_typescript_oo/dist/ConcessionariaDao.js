@@ -18,7 +18,7 @@ var ConcessionariaDao = /** @class */ (function () {
         return true;
     };
     ConcessionariaDao.prototype.remover = function (id) {
-        console.log("Lógica de Remover");
+        console.log("L\u00F3gica de Remover - ID: " + id);
         return new Concessionaria_1.default("", []);
     };
     ConcessionariaDao.prototype.selecionar = function (id) {
@@ -26,7 +26,7 @@ var ConcessionariaDao = /** @class */ (function () {
         return new Concessionaria_1.default("", []);
     };
     ConcessionariaDao.prototype.selecionarTodos = function () {
-        console.log("Lógica de Inserir");
+        console.log("Lógica de Selecionar Todos");
         return [new Concessionaria_1.default("", [])];
     };
     return ConcessionariaDao;
