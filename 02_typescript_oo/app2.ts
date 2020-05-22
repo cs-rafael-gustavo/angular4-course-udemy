@@ -1,6 +1,6 @@
-import Carro from "./carro";
-import Pessoa from "./pessoa";
-import Concessionaria from "./concessionaria";
+import Carro from "./Carro";
+import Pessoa from "./Pessoa";
+import Concessionaria from "./Concessionaria";
 
 // Criar carros
 let carroA = new Carro("Gol", 4);
