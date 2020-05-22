@@ -16,8 +16,8 @@
 
 ## Conteúdo do Curso
 
-- JavaScript Moderno ES6 (ECMAScript 2016)
-- TypeScript e Orientação a Objetos em JavaScript
+- JavaScript Moderno ES6 (ECMAScript 2016) - Concluído
+- TypeScript e Orientação a Objetos em JavaScript - Concluído (22.05.2020)
 - Introdução ao Angular 4
 - Build de desenvolvimento, build de produção e deploy
 - App2: (Pássaro Urbano) - Primeiros passos
