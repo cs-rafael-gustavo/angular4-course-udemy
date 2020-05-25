@@ -10,7 +10,7 @@
 
 - Utilização do superset TypeScript para criação de aplicações JavaScript mais poderosas e seguras.
 
-- Utilização do framework Angular 4 para criação de aplicações WEB.
+- Utilização do framework **Angular 9** (O curso se encontra na versão 4, mas todo o conteúdo será portado para a versão 9 quando conveniente) para criação de aplicações WEB.
 
 ---
 
