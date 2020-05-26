@@ -9,6 +9,7 @@ import { FRASES } from "./frases-mock";
   styleUrls: ["./painel.component.css"],
 })
 export class PainelComponent implements OnInit {
+  public instrucao: string = "Traduza a frase:";
   public frases: Frase[] = FRASES;
 
   constructor() {
