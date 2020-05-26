@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 import { Frase } from "../../shared/frase.model";
 import { FRASES } from "./frases-mock";
@@ -11,6 +11,7 @@ import { FRASES } from "./frases-mock";
 export class PainelComponent implements OnInit {
   public instrucao: string = "Traduza a frase:";
   public frases: Frase[] = FRASES;
+  public resposta: string;
 
   constructor() {
     console.log(this.frases);
@@ -18,7 +19,7 @@ export class PainelComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public atualizarResposta(): void {
-    console.log("teste");
+  public atualizarResposta(resposta: Event): void {
+    this.resposta = (<HTMLInputElement>resposta.target).value;
   }
 }
