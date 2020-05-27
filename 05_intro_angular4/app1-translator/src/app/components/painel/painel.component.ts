@@ -36,6 +36,7 @@ export class PainelComponent implements OnInit {
     } else {
       alert("A tradução está errada");
       this.tentativas--;
+
       if (this.tentativas === -1) {
         alert("Tentativas esgotadas, você perdeu!");
       }
