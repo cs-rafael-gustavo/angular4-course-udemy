@@ -29,16 +29,18 @@ export class PainelComponent implements OnInit {
 
   public verificarResposta() {
     if (this.rodadaFrase.frasePtBr === this.resposta) {
-      alert("A tradução está correta");
       this.rodada++;
       this.progresso = this.progresso + 100 / this.frases.length;
+      if (this.rodada === this.frases.length) {
+        alert("Você acertou todas as traduções! Você venceu!");
+      }
       this.atualizaRodada();
     } else {
       alert("A tradução está errada");
       this.tentativas--;
 
       if (this.tentativas === -1) {
-        alert("Tentativas esgotadas, você perdeu.");
+        alert("Tentativas esgotadas. Você perdeu.");
       }
     }
   }
