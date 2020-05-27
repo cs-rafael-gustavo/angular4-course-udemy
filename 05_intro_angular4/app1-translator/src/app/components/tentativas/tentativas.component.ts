@@ -11,9 +11,9 @@ export class TentativasComponent implements OnInit {
   public coracaoCheio: string = "../../../assets/icons/coracao_cheio.png";
 
   public coracoes: Array<Coracao> = [
-    new Coracao(false),
-    new Coracao(false),
-    new Coracao(false),
+    new Coracao(true),
+    new Coracao(true),
+    new Coracao(true),
   ];
 
   constructor() {
