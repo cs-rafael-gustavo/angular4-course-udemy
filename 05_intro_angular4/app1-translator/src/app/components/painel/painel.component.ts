@@ -38,7 +38,7 @@ export class PainelComponent implements OnInit {
       this.tentativas--;
 
       if (this.tentativas === -1) {
-        alert("Tentativas esgotadas, você perdeu!");
+        alert("Tentativas esgotadas, você perdeu.");
       }
     }
   }
