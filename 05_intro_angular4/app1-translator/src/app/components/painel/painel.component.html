@@ -1,7 +1,9 @@
 <div class="container">
   <div class="jumbotron">
     <div class="row">
-      <div class="col-sm-6"><app-progresso></app-progresso></div>
+      <div class="col-sm-6">
+        <app-progresso [progresso]="progresso"></app-progresso>
+      </div>
       <div class="col-sm-6">
         <div class="d-flex justify-content-end">
           <app-tentativas></app-tentativas>
@@ -18,8 +20,8 @@
             class="form-control"
             rows="3"
             (input)="atualizarResposta($event)"
-          >
-          </textarea>
+            [value]="resposta"
+          ></textarea>
         </div>
       </div>
     </div>

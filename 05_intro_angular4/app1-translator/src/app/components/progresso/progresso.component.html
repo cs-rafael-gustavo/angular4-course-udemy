@@ -1,3 +1,9 @@
 <div class="progress">
-  <div class="progress-bar w-{{ progresso }}"></div>
+  <div
+    class="progress-bar"
+    [style.width]="width"
+    role="progressbar"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  ></div>
 </div>
