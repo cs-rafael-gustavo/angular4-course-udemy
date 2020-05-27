@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Coracao } from "../../shared/coracao.model";
 
 @Component({
   selector: "app-tentativas",
@@ -9,7 +10,15 @@ export class TentativasComponent implements OnInit {
   public coracaoVazio: string = "../../../assets/icons/coracao_vazio.png";
   public coracaoCheio: string = "../../../assets/icons/coracao_cheio.png";
 
-  constructor() {}
+  public coracoes: Array<Coracao> = [
+    new Coracao(false),
+    new Coracao(false),
+    new Coracao(false),
+  ];
+
+  constructor() {
+    console.log(this.coracoes);
+  }
 
   ngOnInit(): void {}
 }
