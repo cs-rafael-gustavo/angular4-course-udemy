@@ -7,10 +7,14 @@
   justify-content: center;
   align-items: center;
   background-color: whitesmoke;
-  border: 1px solid red;
 }
 
-h3 {
-  font-size: 2.5rem;
+.derrota {
+  border: 2px solid red;
   color: red;
+}
+
+.vitoria {
+  border: 2px solid green;
+  color: green;
 }
