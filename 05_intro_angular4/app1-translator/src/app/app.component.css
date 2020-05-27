@@ -1,0 +1,16 @@
+.container {
+  margin-top: 50px;
+}
+
+.jumbotron {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  border: 1px solid red;
+}
+
+h3 {
+  font-size: 2.5rem;
+  color: red;
+}

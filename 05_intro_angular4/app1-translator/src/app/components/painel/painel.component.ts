@@ -47,7 +47,6 @@ export class PainelComponent implements OnInit, OnDestroy {
       }
       this.atualizaRodada();
     } else {
-      alert("A tradução está errada");
       this.tentativas--;
 
       if (this.tentativas === -1) {
