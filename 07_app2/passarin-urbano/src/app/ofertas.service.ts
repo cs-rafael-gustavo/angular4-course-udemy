@@ -55,4 +55,10 @@ export class OfertasService {
   public getOfertas(): Array<Oferta> {
     return this.ofertas;
   }
+
+  public getOfertas2(): Promise<Array<Oferta>> {
+    return new Promise((resolve, reject) => {
+      resolve(this.ofertas);
+    });
+  }
 }
