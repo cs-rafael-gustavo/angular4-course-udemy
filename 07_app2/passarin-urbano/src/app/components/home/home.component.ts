@@ -4,12 +4,12 @@ import { OfertasService } from "../../ofertas.service";
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"],
+  providers: [OfertasService],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private ofertasServices: OfertasService) {}
 
   ngOnInit(): void {
-    let ofertas: OfertasService = new OfertasService();
-    console.log(ofertas.getOfertas());
+    console.log(this.ofertasServices.getOfertas());
   }
 }
