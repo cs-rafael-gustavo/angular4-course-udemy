@@ -62,7 +62,10 @@ export class OfertasService {
       if (ok) {
         resolve(this.ofertas);
       } else {
-        reject({ codigo_erro: 404, mensagem_erro: "Servidor não encontrado" });
+        reject({
+          codigo_erro: 404,
+          mensagem_erro: "Servidor não encontrado de verdade",
+        });
       }
     });
   }
