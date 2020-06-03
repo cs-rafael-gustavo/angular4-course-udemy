@@ -58,15 +58,25 @@ export class OfertasService {
 
   public getOfertas2(): Promise<Array<Oferta>> {
     return new Promise((resolve, reject) => {
-      let ok = false;
+      let ok = true;
       if (ok) {
-        resolve(this.ofertas);
+        setTimeout(() => {
+          resolve(this.ofertas);
+        }, 3000);
       } else {
         reject({
           codigo_erro: 404,
           mensagem_erro: "Servidor não encontrado de verdade",
         });
       }
-    });
+    })
+      .then((ofertas: Array<Oferta>) => {
+        console.log("Primeiro then");
+        return ofertas;
+      })
+      .then((ofertas: Array<Oferta>) => {
+        console.log("Segundo then");
+        return ofertas;
+      });
   }
 }
