@@ -1,7 +1,11 @@
 <div class="fixed-top">
   <nav class="navbar navbar-light bg-faded">
     <div class="container">
-      <a href="#" class="navbar-brand">
+      <a
+        class="navbar-brand"
+        [routerLink]="['']"
+        routerLinkActive="router-link-active"
+      >
         <img src="/assets/img/logo/logo.png" />
       </a>
       <a a href="#"><img src="/assets/icons/carrinho.png" /></a>
@@ -12,10 +16,20 @@
     <div class="container">
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Restaurantes</a>
+          <a
+            class="nav-link active"
+            [routerLink]="['/restaurantes']"
+            routerLinkActive="router-link-active"
+            >Restaurantes</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Diversão</a>
+          <a
+            class="nav-link"
+            [routerLink]="['/diversao']"
+            routerLinkActive="router-link-active"
+            >Diversão</a
+          >
         </li>
       </ul>
     </div>
