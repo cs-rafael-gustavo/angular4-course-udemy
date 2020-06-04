@@ -9,6 +9,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { RestaurantesComponent } from "./pages/restaurantes/restaurantes.component";
 import { DiversaoComponent } from "./pages/diversao/diversao.component";
+import { OfertaComponent } from './pages/oferta/oferta.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DiversaoComponent } from "./pages/diversao/diversao.component";
     FooterComponent,
     RestaurantesComponent,
     DiversaoComponent,
+    OfertaComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
