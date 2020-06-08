@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Oferta } from "./components/shared/oferta.model";
 import { Injectable } from "@angular/core";
-// import "rxjs/operator/toPromise";
+import { environment } from "../environments/environment";
 
 @Injectable()
 export class OfertasService {
@@ -9,21 +9,21 @@ export class OfertasService {
 
   public getOfertas(): Promise<Array<Oferta>> {
     return this.http
-      .get("http://localhost:3000/ofertas?destaque=true")
+      .get(`${environment.API_URL}ofertas?destaque=true`)
       .toPromise()
       .then((res: any) => res);
   }
 
   public getOfertasPorCategoria(categoria: string): Promise<Array<Oferta>> {
     return this.http
-      .get(`http://localhost:3000/ofertas?categoria=${categoria}`)
+      .get(`${environment.API_URL}ofertas?categoria=${categoria}`)
       .toPromise()
       .then((res: any) => res);
   }
 
   public getOfertaPorId(id: number): Promise<Oferta> {
     return this.http
-      .get(`http://localhost:3000/ofertas?id=${id}`)
+      .get(`${environment.API_URL}ofertas?id=${id}`)
       .toPromise()
       .then((res: any) => res.shift());
   }
