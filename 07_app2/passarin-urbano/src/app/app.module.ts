@@ -10,6 +10,8 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { RestaurantesComponent } from "./pages/restaurantes/restaurantes.component";
 import { DiversaoComponent } from "./pages/diversao/diversao.component";
 import { OfertaComponent } from './pages/oferta/oferta.component';
+import { ComoUsarComponent } from './pages/oferta/como-usar/como-usar.component';
+import { OndeFicaComponent } from './pages/oferta/onde-fica/onde-fica.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { OfertaComponent } from './pages/oferta/oferta.component';
     RestaurantesComponent,
     DiversaoComponent,
     OfertaComponent,
+    ComoUsarComponent,
+    OndeFicaComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
