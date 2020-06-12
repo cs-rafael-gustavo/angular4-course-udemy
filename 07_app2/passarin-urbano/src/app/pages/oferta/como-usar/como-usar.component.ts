@@ -17,7 +17,6 @@ export class ComoUsarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log("ID da Rota Pai: ");
     this.ofertasService
       .getComoUsarOfertaPorId(this.route.parent.snapshot.params["id"])
       .then((descricao: any) => {
