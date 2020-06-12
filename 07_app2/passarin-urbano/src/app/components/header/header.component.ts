@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public pesquisa(event: Event): void {
-    console.log((<HTMLInputElement>event.target).value);
+  public pesquisa(termoDaPesquisa: string): void {
+    console.log(termoDaPesquisa);
   }
 }
