@@ -9,22 +9,31 @@ export class OfertasService {
 
   public getOfertas(): Promise<Array<Oferta>> {
     return this.http
-      .get(`${URL_API}?destaque=true`)
+      .get(`${URL_API}/ofertas?destaque=true`)
       .toPromise()
       .then((res: any) => res);
   }
 
   public getOfertasPorCategoria(categoria: string): Promise<Array<Oferta>> {
     return this.http
-      .get(`${URL_API}?categoria=${categoria}`)
+      .get(`${URL_API}/ofertas?categoria=${categoria}`)
       .toPromise()
       .then((res: any) => res);
   }
 
   public getOfertaPorId(id: number): Promise<Oferta> {
     return this.http
-      .get(`${URL_API}?id=${id}`)
+      .get(`${URL_API}/ofertas?id=${id}`)
       .toPromise()
       .then((res: any) => res.shift());
+  }
+
+  public getComoUsarOfertaPorId(id: number): Promise<string> {
+    return this.http
+      .get(`${URL_API}/como-usar?id=${id}`)
+      .toPromise()
+      .then((res: any) => {
+        return res[0].descricao;
+      });
   }
 }
