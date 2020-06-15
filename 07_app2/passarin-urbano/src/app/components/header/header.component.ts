@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { OfertasService } from "../../ofertas.service";
 import { Oferta } from "../shared/oferta.model";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
+import { switchMap } from "rxjs/operators";
 
 @Component({
   selector: "app-header",
@@ -10,19 +11,23 @@ import { Observable } from "rxjs";
   providers: [OfertasService],
 })
 export class HeaderComponent implements OnInit {
-  public ofertas: Observable<Oferta[]>;
+  public ofertas: Observable<any>;
+  private subjectPesquisa: Subject<string> = new Subject<string>();
 
   constructor(private ofertasService: OfertasService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.ofertas = this.subjectPesquisa // Retorno da Oferta[]
+      .pipe(
+        switchMap((termo: string) => {
+          return this.ofertasService.pesquisaOfertas(termo);
+        })
+      );
+
+    this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
+  }
 
   public pesquisa(termoDaPesquisa: string): void {
-    this.ofertas = this.ofertasService.pesquisaOfertas(termoDaPesquisa);
-
-    this.ofertas.subscribe(
-      (ofertas: Oferta[]) => console.log(ofertas),
-      (err: any) => console.log("Erro Status: ", err.status),
-      () => console.log("Fluxo de Eventos Completo!")
-    );
+    this.subjectPesquisa.next(termoDaPesquisa);
   }
 }
