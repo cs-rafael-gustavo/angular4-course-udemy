@@ -18,6 +18,10 @@ export class HeaderComponent implements OnInit {
 
   public pesquisa(termoDaPesquisa: string): void {
     this.ofertas = this.ofertasService.pesquisaOfertas(termoDaPesquisa);
-    this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
+
+    this.ofertas.subscribe(
+      (ofertas: Oferta[]) => console.log(ofertas),
+      (err: any) => console.log("Erro Status: ", err.status)
+    );
   }
 }
