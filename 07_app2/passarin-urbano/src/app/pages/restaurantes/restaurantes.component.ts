@@ -11,8 +11,6 @@ import { OfertasService } from "../../ofertas.service";
 export class RestaurantesComponent implements OnInit {
   public ofertas: Oferta[] = [];
 
-  public dataTeste: any = new Date(2020, 7, 16);
-
   constructor(private ofertasService: OfertasService) {}
 
   ngOnInit(): void {
@@ -20,7 +18,6 @@ export class RestaurantesComponent implements OnInit {
       .getOfertasPorCategoria("restaurante")
       .then((ofertas: Oferta[]) => {
         this.ofertas = ofertas;
-        console.log(this.ofertas);
       });
   }
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, LOCALE_ID } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -9,9 +9,16 @@ import { HomeComponent } from "./pages/home/home.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { RestaurantesComponent } from "./pages/restaurantes/restaurantes.component";
 import { DiversaoComponent } from "./pages/diversao/diversao.component";
-import { OfertaComponent } from './pages/oferta/oferta.component';
-import { ComoUsarComponent } from './pages/oferta/como-usar/como-usar.component';
-import { OndeFicaComponent } from './pages/oferta/onde-fica/onde-fica.component';
+import { OfertaComponent } from "./pages/oferta/oferta.component";
+import { ComoUsarComponent } from "./pages/oferta/como-usar/como-usar.component";
+import { OndeFicaComponent } from "./pages/oferta/onde-fica/onde-fica.component";
+
+import localePt from "@angular/common/locales/pt";
+import { registerLocaleData } from "@angular/common";
+
+import { DescricaoReduzida } from "./utils/descricao-reduzida.pipe";
+
+registerLocaleData(localePt, "pt");
 
 @NgModule({
   declarations: [
@@ -24,9 +31,10 @@ import { OndeFicaComponent } from './pages/oferta/onde-fica/onde-fica.component'
     OfertaComponent,
     ComoUsarComponent,
     OndeFicaComponent,
+    DescricaoReduzida,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: "pt" }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
