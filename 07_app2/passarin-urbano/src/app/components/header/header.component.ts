@@ -2,7 +2,12 @@ import { Component, OnInit } from "@angular/core";
 import { OfertasService } from "../../ofertas.service";
 import { Oferta } from "../shared/oferta.model";
 import { Observable, Subject, of } from "rxjs";
-import { switchMap, debounceTime, distinctUntilChanged } from "rxjs/operators";
+import {
+  switchMap,
+  debounceTime,
+  distinctUntilChanged,
+  catchError,
+} from "rxjs/operators";
 
 @Component({
   selector: "app-header",
@@ -12,6 +17,7 @@ import { switchMap, debounceTime, distinctUntilChanged } from "rxjs/operators";
 })
 export class HeaderComponent implements OnInit {
   public ofertas: Observable<any>;
+  public ofertas2: Oferta[];
   private subjectPesquisa: Subject<string> = new Subject<string>();
 
   constructor(private ofertasService: OfertasService) {}
@@ -23,16 +29,23 @@ export class HeaderComponent implements OnInit {
         distinctUntilChanged(),
         switchMap((termo: string) => {
           if (termo.trim() === "") {
-            console.log("Não foi feito requisição a API");
+            console.log("Não foi feita a requisição a API");
 
             return of<Oferta[]>([]);
           }
-          console.log("Requisição Http para API");
+          console.log("Requisição Http para API realizada");
           return this.ofertasService.pesquisaOfertas(termo);
+        }),
+        catchError((err: any) => {
+          console.log(
+            "Erro Capturado, sem efeitos colaterais a aplicação",
+            err
+          );
+          return of<Oferta[]>([]);
         })
       );
 
-    this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
+    this.ofertas.subscribe((ofertas: Oferta[]) => (this.ofertas2 = ofertas));
   }
 
   public pesquisa(termoDaPesquisa: string): void {
