@@ -16,13 +16,11 @@ export class OfertasService {
       .then((res: HttpResponse<Oferta[]>) => res);
   }
 
-  public getOfertasPorCategoria(
-    categoria: string
-  ): Promise<HttpResponse<Oferta[]>> {
+  public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
     return this.http
       .get(`${URL_API}/ofertas?categoria=${categoria}`)
       .toPromise()
-      .then((res: HttpResponse<Oferta[]>) => res);
+      .then((res: Oferta[]) => res);
   }
 
   public getOfertaPorId(id: number): Promise<HttpResponse<Oferta>> {
