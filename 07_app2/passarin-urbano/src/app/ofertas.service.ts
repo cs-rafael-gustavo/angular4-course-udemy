@@ -9,11 +9,11 @@ import { map, retry } from "rxjs/operators";
 export class OfertasService {
   constructor(private http: HttpClient) {}
 
-  public getOfertas(): Promise<HttpResponse<Oferta[]>> {
+  public getOfertas(): Promise<Oferta[]> {
     return this.http
       .get(`${URL_API}/ofertas?destaque=true`)
       .toPromise()
-      .then((res: HttpResponse<Oferta[]>) => res);
+      .then((res: Oferta[]) => res);
   }
 
   public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
@@ -23,11 +23,11 @@ export class OfertasService {
       .then((res: Oferta[]) => res);
   }
 
-  public getOfertaPorId(id: number): Promise<HttpResponse<Oferta>> {
+  public getOfertaPorId(id: number): Promise<Oferta> {
     return this.http
       .get(`${URL_API}/ofertas?id=${id}`)
       .toPromise()
-      .then((res: HttpResponse<Oferta>) => res);
+      .then((res: any) => res.shift());
   }
 
   public getComoUsarOfertaPorId(id: number): Promise<string> {
@@ -54,7 +54,6 @@ export class OfertasService {
       .pipe(
         retry(10),
         map((res: HttpResponse<Oferta[]>) => {
-          console.log(res);
           return res;
         })
       );

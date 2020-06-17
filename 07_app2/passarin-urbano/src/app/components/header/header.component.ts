@@ -17,7 +17,6 @@ import {
 })
 export class HeaderComponent implements OnInit {
   public ofertas: Observable<any>;
-  public ofertas2: Oferta[];
   private subjectPesquisa: Subject<string> = new Subject<string>();
 
   constructor(private ofertasService: OfertasService) {}
@@ -29,28 +28,22 @@ export class HeaderComponent implements OnInit {
         distinctUntilChanged(),
         switchMap((termo: string) => {
           if (termo.trim() === "") {
-            console.log("Não foi feita a requisição a API");
-
             return of<Oferta[]>([]);
           }
-          console.log("Requisição Http para API realizada");
           return this.ofertasService.pesquisaOfertas(termo);
         }),
         catchError((err: any) => {
-          console.log(
-            "Erro Capturado, sem efeitos colaterais a aplicação",
-            err
-          );
+          console.log(err);
           return of<Oferta[]>([]);
         })
       );
-
-    this.ofertas.subscribe((ofertas: Oferta[]) => (this.ofertas2 = ofertas));
   }
 
   public pesquisa(termoDaPesquisa: string): void {
-    console.log("Keyup character: ", termoDaPesquisa);
-
     this.subjectPesquisa.next(termoDaPesquisa);
+  }
+
+  public limpaPesquisa(): void {
+    this.subjectPesquisa.next("");
   }
 }

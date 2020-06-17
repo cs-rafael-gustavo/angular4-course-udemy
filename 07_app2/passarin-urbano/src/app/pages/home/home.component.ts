@@ -8,14 +8,14 @@ import { Oferta } from "../../components/shared/oferta.model";
   providers: [OfertasService],
 })
 export class HomeComponent implements OnInit {
-  public ofertas: Array<Oferta>;
+  public ofertas: Oferta[];
 
   constructor(private ofertasServices: OfertasService) {}
 
   ngOnInit(): void {
     this.ofertasServices
       .getOfertas()
-      .then((ofertas: Array<Oferta>) => {
+      .then((ofertas: Oferta[]) => {
         this.ofertas = ofertas;
       })
       .catch((param: any) => param);
