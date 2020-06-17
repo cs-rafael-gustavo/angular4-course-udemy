@@ -17,6 +17,7 @@ import localePt from "@angular/common/locales/pt";
 import { registerLocaleData } from "@angular/common";
 
 import { DescricaoReduzida } from "./utils/descricao-reduzida.pipe";
+import { OrdemCompraComponent } from './pages/ordem-compra/ordem-compra.component';
 
 registerLocaleData(localePt, "pt");
 
@@ -32,6 +33,7 @@ registerLocaleData(localePt, "pt");
     ComoUsarComponent,
     OndeFicaComponent,
     DescricaoReduzida,
+    OrdemCompraComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [{ provide: LOCALE_ID, useValue: "pt" }],
