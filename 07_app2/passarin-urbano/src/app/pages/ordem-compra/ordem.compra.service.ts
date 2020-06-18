@@ -9,9 +9,9 @@ import { map } from "rxjs/operators";
 export class OrdemCompraService {
   constructor(private http: HttpClient) {}
 
-  public efetivarCompra(pedido: Pedido): Observable<any> {
+  public efetivarCompra(pedido: Pedido): Observable<number> {
     return this.http
       .post(`${URL_API}/pedidos`, pedido)
-      .pipe(map((res: any) => console.log(res)));
+      .pipe(map((res: any) => res.id));
   }
 }
