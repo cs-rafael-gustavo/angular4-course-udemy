@@ -21,6 +21,8 @@ export class OrdemCompraComponent implements OnInit {
   public complementoEstadoPrimitivo: boolean = true;
   public formaPagamentoEstadoPrimitivo: boolean = true;
 
+  public formEstado: string = "disabled";
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -35,6 +37,8 @@ export class OrdemCompraComponent implements OnInit {
     } else {
       this.enderecoValido = false;
     }
+
+    this.habilitaForm();
   }
 
   public atualizaNumero(numero: string): void {
@@ -47,6 +51,8 @@ export class OrdemCompraComponent implements OnInit {
     } else {
       this.numeroValido = false;
     }
+
+    this.habilitaForm();
   }
 
   public atualizaComplemento(complemento: string): void {
@@ -69,5 +75,14 @@ export class OrdemCompraComponent implements OnInit {
     } else {
       this.formaPagamentoValido = false;
     }
+
+    this.habilitaForm();
+  }
+
+  public habilitaForm(): void {
+    this.formEstado =
+      this.enderecoValido && this.numeroValido && this.formaPagamentoValido
+        ? ""
+        : "disabled";
   }
 }
