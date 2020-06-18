@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, LOCALE_ID } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -18,7 +19,7 @@ import { registerLocaleData } from "@angular/common";
 
 import { DescricaoReduzida } from "./utils/descricao-reduzida.pipe";
 import { OrdemCompraComponent } from "./pages/ordem-compra/ordem-compra.component";
-import { OrdemCompraSucessoComponent } from './pages/ordem-compra/ordem-compra-sucesso/ordem-compra-sucesso.component';
+import { OrdemCompraSucessoComponent } from "./pages/ordem-compra/ordem-compra-sucesso/ordem-compra-sucesso.component";
 
 registerLocaleData(localePt, "pt");
 
@@ -37,7 +38,7 @@ registerLocaleData(localePt, "pt");
     OrdemCompraComponent,
     OrdemCompraSucessoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [{ provide: LOCALE_ID, useValue: "pt" }],
   bootstrap: [AppComponent],
 })
