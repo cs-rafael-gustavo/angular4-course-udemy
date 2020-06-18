@@ -1,7 +1,7 @@
 import { HttpClient, HttpResponse } from "@angular/common/http";
-import { Oferta } from "./components/shared/oferta.model";
+import { Oferta } from "../../components/shared/oferta.model";
 import { Injectable } from "@angular/core";
-import { URL_API } from "./app.api";
+import { URL_API } from "../../app.api";
 import { Observable } from "rxjs";
 import { map, retry } from "rxjs/operators";
 

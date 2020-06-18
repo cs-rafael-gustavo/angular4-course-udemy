@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
-import { OfertasService } from "../../ofertas.service";
+import { OfertasService } from "./ofertas.service";
 import { Oferta } from "./../../components/shared/oferta.model";
 
 @Component({

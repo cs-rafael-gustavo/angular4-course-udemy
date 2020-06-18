@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { OfertasService } from "../../ofertas.service";
+import { OfertasService } from "../../pages/oferta/ofertas.service";
 import { Oferta } from "../shared/oferta.model";
 import { Observable, Subject, of } from "rxjs";
 import {
