@@ -192,6 +192,27 @@
       "complemento": "Casa do Advogado de Biroliro",
       "formaPagamento": "dinheiro",
       "id": 1
+    },
+    {
+      "endereco": "Rua Nova",
+      "numero": "54",
+      "complemento": "Centro",
+      "formaPagamento": "debito",
+      "id": 2
+    },
+    {
+      "endereco": "Rua Velha",
+      "numero": "46",
+      "complemento": "Centro",
+      "formaPagamento": "dinheiro",
+      "id": 3
+    },
+    {
+      "endereco": "Rua dos Burros",
+      "numero": "13",
+      "complemento": "Sítio do Lula",
+      "formaPagamento": "debito",
+      "id": 4
     }
   ]
 }

@@ -1,10 +1,6 @@
 <div class="container">
   <div class="ordem-compra">
-    <form
-      novalidate
-      #formulario="ngForm"
-      (ngSubmit)="confirmarCompra(formulario)"
-    >
+    <form novalidate #formulario="ngForm" (ngSubmit)="confirmarCompra()">
       <h5>Sua Compra</h5>
       <hr />
 
@@ -73,7 +69,10 @@
       </div>
 
       <div class="form-row">
-        <div class="form-group col d-flex justify-content-end">
+        <div
+          class="form-group col d-flex justify-content-end"
+          style="margin-top: 10px;"
+        >
           <h4>Total do pedido: 61.80</h4>
         </div>
       </div>
