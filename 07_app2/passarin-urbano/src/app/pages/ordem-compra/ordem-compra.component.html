@@ -92,6 +92,9 @@
             required
             name="endereco"
             ngModel
+            required
+            minlength="3"
+            maxlength="120"
           />
           <small class="form-text text-danger">Endereço inválido</small>
         </div>
@@ -106,6 +109,9 @@
             required
             name="numero"
             ngModel
+            required
+            minlength="1"
+            maxlength="20"
           />
           <small class="form-text text-success">Ok</small>
         </div>
@@ -128,7 +134,12 @@
 
       <div class="form-row">
         <div class="form-group col-md-3">
-          <select class="form-control is-invalid" name="formaPagamento" ngModel>
+          <select
+            class="form-control is-invalid"
+            name="formaPagamento"
+            ngModel
+            required
+          >
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
             <option value="debito">Débito</option>
