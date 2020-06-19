@@ -213,6 +213,13 @@
       "complemento": "Sítio do Lula",
       "formaPagamento": "debito",
       "id": 4
+    },
+    {
+      "endereco": "Rua Qualquer",
+      "numero": "89",
+      "complemento": "Não sei",
+      "formaPagamento": "dinheiro",
+      "id": 5
     }
   ]
 }

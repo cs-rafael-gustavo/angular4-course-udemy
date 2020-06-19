@@ -17,6 +17,18 @@ export class OrdemCompraComponent implements OnInit {
   ngOnInit() {}
 
   public confirmarCompra(): void {
-    console.log(this.f);
+    let pedido: Pedido = new Pedido(
+      this.f.value.endereco,
+      this.f.value.numero,
+      this.f.value.complemento,
+      this.f.value.formaPagamento
+    );
+
+    this.ordemCompraService
+      .efetivarCompra(pedido)
+      .subscribe((idPedido: number) => {
+        console.log("Pedido cadastrado com sucesso");
+        console.log("ID do Pedido: ", idPedido);
+      });
   }
 }
