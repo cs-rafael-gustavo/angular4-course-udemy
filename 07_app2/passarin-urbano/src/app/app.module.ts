@@ -20,6 +20,7 @@ import { registerLocaleData } from "@angular/common";
 import { DescricaoReduzida } from "./utils/descricao-reduzida.pipe";
 import { OrdemCompraComponent } from "./pages/ordem-compra/ordem-compra.component";
 import { OrdemCompraSucessoComponent } from "./pages/ordem-compra/ordem-compra-sucesso/ordem-compra-sucesso.component";
+import { CarrinhoCompraComponent } from './pages/ordem-compra/carrinho-compra/carrinho-compra.component';
 
 registerLocaleData(localePt, "pt");
 
@@ -37,6 +38,7 @@ registerLocaleData(localePt, "pt");
     DescricaoReduzida,
     OrdemCompraComponent,
     OrdemCompraSucessoComponent,
+    CarrinhoCompraComponent,
   ],
   imports: [
     BrowserModule,
