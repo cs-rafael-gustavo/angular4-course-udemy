@@ -9,7 +9,7 @@ import { ItemCarrinho } from "./../../components/shared/item-carrinho.model";
   selector: "app-oferta",
   templateUrl: "./oferta.component.html",
   styleUrls: ["./oferta.component.css"],
-  providers: [OfertasService, CarrinhoCompraService],
+  providers: [OfertasService],
 })
 export class OfertaComponent implements OnInit, OnDestroy {
   public oferta: Oferta;
@@ -30,6 +30,7 @@ export class OfertaComponent implements OnInit, OnDestroy {
 
   public adicionarItemCarrinho(): void {
     this.carrinhoCompraService.incluirItem(this.oferta);
+    console.log(this.carrinhoCompraService.exibirItens());
   }
 
   ngOnDestroy(): void {}

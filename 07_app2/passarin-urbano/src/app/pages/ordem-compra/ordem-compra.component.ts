@@ -8,7 +8,7 @@ import { CarrinhoCompraService } from "./carrinho-compra/carrinho-compra.service
   selector: "app-ordem-compra",
   templateUrl: "./ordem-compra.component.html",
   styleUrls: ["./ordem-compra.component.css"],
-  providers: [OrdemCompraService, CarrinhoCompraService],
+  providers: [OrdemCompraService],
 })
 export class OrdemCompraComponent implements OnInit {
   public formulario: FormGroup = new FormGroup({

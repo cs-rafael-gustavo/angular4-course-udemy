@@ -17,9 +17,6 @@ export class CarrinhoCompraService {
       oferta.valor,
       1
     );
-    console.log(
-      "Oferta recebida no Serviço e transformada em ItemCarrinho",
-      itemCarrinho
-    );
+    this.itens.push(itemCarrinho);
   }
 }

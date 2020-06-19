@@ -2,6 +2,11 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, LOCALE_ID } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
+import localePt from "@angular/common/locales/pt";
+import { registerLocaleData } from "@angular/common";
+registerLocaleData(localePt, "pt");
+
+import { DescricaoReduzida } from "./utils/descricao-reduzida.pipe";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -14,15 +19,11 @@ import { OfertaComponent } from "./pages/oferta/oferta.component";
 import { ComoUsarComponent } from "./pages/oferta/como-usar/como-usar.component";
 import { OndeFicaComponent } from "./pages/oferta/onde-fica/onde-fica.component";
 
-import localePt from "@angular/common/locales/pt";
-import { registerLocaleData } from "@angular/common";
-
-import { DescricaoReduzida } from "./utils/descricao-reduzida.pipe";
 import { OrdemCompraComponent } from "./pages/ordem-compra/ordem-compra.component";
 import { OrdemCompraSucessoComponent } from "./pages/ordem-compra/ordem-compra-sucesso/ordem-compra-sucesso.component";
-import { CarrinhoCompraComponent } from './pages/ordem-compra/carrinho-compra/carrinho-compra.component';
+import { CarrinhoCompraComponent } from "./pages/ordem-compra/carrinho-compra/carrinho-compra.component";
 
-registerLocaleData(localePt, "pt");
+import { CarrinhoCompraService } from "./pages/ordem-compra/carrinho-compra/carrinho-compra.service";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ registerLocaleData(localePt, "pt");
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "pt" }],
+  providers: [{ provide: LOCALE_ID, useValue: "pt" }, CarrinhoCompraService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
