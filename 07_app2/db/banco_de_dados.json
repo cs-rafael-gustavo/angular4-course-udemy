@@ -220,6 +220,13 @@
       "complemento": "Não sei",
       "formaPagamento": "dinheiro",
       "id": 5
+    },
+    {
+      "endereco": "Avenida Sport",
+      "numero": "87",
+      "complemento": "Sport",
+      "formaPagamento": "dinheiro",
+      "id": 6
     }
   ]
 }
