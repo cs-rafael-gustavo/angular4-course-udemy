@@ -48,7 +48,10 @@
           class="form-group col d-flex justify-content-end"
           style="margin-top: 10px;"
         >
-          <h4>Total do pedido: 61.80</h4>
+          <h4>
+            Total do pedido:
+            {{ carrinhoCompraService.totalCarrinhoCompras() | currency: "BRL" }}
+          </h4>
         </div>
       </div>
       <br />
