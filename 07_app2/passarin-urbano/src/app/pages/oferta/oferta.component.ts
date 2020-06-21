@@ -3,7 +3,6 @@ import { ActivatedRoute, Params } from "@angular/router";
 import { OfertasService } from "./ofertas.service";
 import { Oferta } from "./../../components/shared/oferta.model";
 import { CarrinhoCompraService } from "../ordem-compra/carrinho-compra/carrinho-compra.service";
-import { ItemCarrinho } from "./../../components/shared/item-carrinho.model";
 
 @Component({
   selector: "app-oferta",
