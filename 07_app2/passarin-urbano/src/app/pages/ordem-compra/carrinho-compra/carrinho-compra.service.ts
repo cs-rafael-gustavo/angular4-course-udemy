@@ -36,4 +36,26 @@ export class CarrinhoCompraService {
     });
     return total;
   }
+
+  public aumentarQuantidade(itemCarrinho: ItemCarrinho): void {
+    let itemCarrinhoEncontrado = this.itens.find(
+      (item: ItemCarrinho) => item.id === itemCarrinho.id
+    );
+
+    if (itemCarrinhoEncontrado) {
+      itemCarrinhoEncontrado.quantidade += 1;
+    }
+  }
+
+  public diminuirQuantidade(itemCarrinho: ItemCarrinho): void {
+    let itemCarrinhoEncontrado = this.itens.find(
+      (item: ItemCarrinho) => item.id === itemCarrinho.id
+    );
+
+    if (itemCarrinhoEncontrado && itemCarrinhoEncontrado.quantidade > 1) {
+      itemCarrinhoEncontrado.quantidade -= 1;
+    } else {
+      this.itens.splice(this.itens.indexOf(itemCarrinhoEncontrado), 1);
+    }
+  }
 }
