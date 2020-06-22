@@ -6,6 +6,7 @@ import {
   transition,
   animate,
 } from "@angular/animations";
+import { Imagem } from "./imagem.model";
 
 @Component({
   selector: "app-banner",
@@ -31,6 +32,14 @@ import {
 })
 export class BannerComponent implements OnInit {
   public estado: string = "escondido";
+
+  public imagens: Imagem[] = [
+    { estado: "escondido", url: "/assets/banner-acesso/animations/img_1.png" },
+    { estado: "escondido", url: "/assets/banner-acesso/animations/img_2.png" },
+    { estado: "escondido", url: "/assets/banner-acesso/animations/img_3.png" },
+    { estado: "escondido", url: "/assets/banner-acesso/animations/img_4.png" },
+    { estado: "escondido", url: "/assets/banner-acesso/animations/img_5.png" },
+  ];
 
   constructor() {}
 
