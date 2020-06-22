@@ -1,9 +1,13 @@
 div {
+  display: flex;
+  justify-content: center;
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
   padding-top: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .bg-padrao {
