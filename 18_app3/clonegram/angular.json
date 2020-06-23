@@ -46,7 +46,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
@@ -108,5 +111,8 @@
       }
     }
   },
-  "defaultProject": "clonegram"
+  "defaultProject": "clonegram",
+  "cli": {
+    "analytics": "0caecde7-4d77-474d-b2e4-76b74910005d"
+  }
 }
