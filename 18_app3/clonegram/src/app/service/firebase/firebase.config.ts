@@ -1,14 +1,10 @@
-import * as firebase from "firebase";
-
-const firebaseConfig = {
-  apiKey: process.env.NG_APP_APIKEY,
-  authDomain: process.env.NG_APP_AUTHDOMAIN,
-  databaseURL: process.env.NG_APP_DATABASEURL,
-  projectId: process.env.NG_APP_PROJECTID,
-  storageBucket: process.env.NG_APP_STORAGEBUCKET,
-  messagingSenderId: process.env.NG_APP_MESSAGINGSENDERID,
-  appId: process.env.NG_APP_APPID,
-  measurementId: process.env.NG_APP_MEASUREMENTID,
+export const firebaseConfig = {
+  apiKey: "AIzaSyB6YnVeCzRKeFRTv-w0fvxzTFDg9E98I3I",
+  authDomain: "clom-ng9.firebaseapp.com",
+  databaseURL: "https://clom-ng9.firebaseio.com",
+  projectId: "clom-ng9",
+  storageBucket: "clom-ng9.appspot.com",
+  messagingSenderId: "375277298371",
+  appId: "1:375277298371:web:855cefed2667f334af3876",
+  measurementId: "G-BHV7CWNNST",
 };
-
-export const app = firebase.initializeApp(firebaseConfig);
