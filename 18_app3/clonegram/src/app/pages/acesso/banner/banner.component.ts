@@ -6,7 +6,7 @@ import {
   transition,
   animate,
 } from "@angular/animations";
-import { Imagem } from "./imagem.model";
+import { Imagem } from "../../../shared/model/imagem.model";
 
 @Component({
   selector: "app-banner",
