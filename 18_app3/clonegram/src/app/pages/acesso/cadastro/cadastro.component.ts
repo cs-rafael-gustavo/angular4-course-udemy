@@ -25,7 +25,7 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public exibirPainelCadastro(): void {
+  public exibirPainelLogin(): void {
     this.exibirPainel.emit("login");
   }
 
@@ -37,6 +37,8 @@ export class CadastroComponent implements OnInit {
       this.formulario.value.senha
     );
 
-    this.autenticacao.cadastrarUsuario(usuario);
+    this.autenticacao
+      .cadastrarUsuario(usuario)
+      .then((res: any) => this.exibirPainelLogin());
   }
 }

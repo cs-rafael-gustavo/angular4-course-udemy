@@ -2,8 +2,8 @@ import { Usuario } from "../../shared/model/usuario.model";
 import * as firebase from "firebase";
 
 export class Autenticacao {
-  public cadastrarUsuario(usuario: Usuario): void {
-    firebase
+  public cadastrarUsuario(usuario: Usuario): Promise<any> {
+    return firebase
       .auth()
       .createUserWithEmailAndPassword(usuario.email, usuario.senha)
       .then((res: any) => {
