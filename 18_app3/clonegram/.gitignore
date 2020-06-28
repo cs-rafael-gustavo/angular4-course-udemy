@@ -50,5 +50,10 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Firebase Config
 src/app/service/firebase/*
 !src/app/service/firebase/.gitkeep
+
+# Assets Config
+src/assets/*
+!src/assets/.gitkeep
