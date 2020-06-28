@@ -13,6 +13,15 @@ export class Autenticacao {
           .database()
           .ref(`usuario_detalhe/${btoa(usuario.email)}`)
           .set(usuario);
-      });
+      })
+      .catch((err: Error) => console.log(err));
+  }
+
+  public autenticar(email: string, senha: string): void {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, senha)
+      .then((res: any) => console.log(res))
+      .catch((err: Error) => console.log(err));
   }
 }
