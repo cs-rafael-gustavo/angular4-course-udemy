@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import { Autenticacao } from "./service/autenticacao/autenticacao.service";
 import { AutenticacaoGuard } from "./service/autenticacao/autenticacao-guard.service";
+import { Bd } from "./service/bd/bd.service";
+import { Progresso } from "./service/progresso/progresso.service";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -15,7 +17,6 @@ import { CadastroComponent } from "./pages/acesso/cadastro/cadastro.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { PublicacoesComponent } from "./pages/home/publicacoes/publicacoes.component";
 import { IncluirPublicacaoComponent } from "./pages/home/incluir-publicacao/incluir-publicacao.component";
-import { Bd } from "./service/bd/bd.service";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { Bd } from "./service/bd/bd.service";
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
-  providers: [Autenticacao, AutenticacaoGuard, Bd],
+  providers: [Autenticacao, AutenticacaoGuard, Bd, Progresso],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
