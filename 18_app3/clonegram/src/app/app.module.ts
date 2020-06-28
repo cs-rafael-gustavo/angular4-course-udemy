@@ -14,7 +14,8 @@ import { LoginComponent } from "./pages/acesso/login/login.component";
 import { CadastroComponent } from "./pages/acesso/cadastro/cadastro.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { PublicacoesComponent } from "./pages/home/publicacoes/publicacoes.component";
-import { IncluirPublicacaoComponent } from './pages/home/incluir-publicacao/incluir-publicacao.component';
+import { IncluirPublicacaoComponent } from "./pages/home/incluir-publicacao/incluir-publicacao.component";
+import { Bd } from "./service/bd/bd.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { IncluirPublicacaoComponent } from './pages/home/incluir-publicacao/incl
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
-  providers: [Autenticacao, AutenticacaoGuard],
+  providers: [Autenticacao, AutenticacaoGuard, Bd],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
