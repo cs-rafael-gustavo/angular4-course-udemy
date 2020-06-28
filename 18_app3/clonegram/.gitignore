@@ -50,5 +50,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Service
-/src/app/service/firebase/*
+src/app/service/firebase/*
+!src/app/service/firebase/.gitkeep
