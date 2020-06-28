@@ -21,11 +21,11 @@ export class Autenticacao {
           .ref(`usuario_detalhe/${btoa(usuario.email)}`)
           .set(usuario);
       })
-      .catch((err: Error) => console.log(err));
+      .catch((err: Error) => err.message);
   }
 
-  public autenticar(email: string, senha: string): void {
-    firebase
+  public autenticar(email: string, senha: string): Promise<any> {
+    return firebase
       .auth()
       .signInWithEmailAndPassword(email, senha)
       .then((res: any) =>
@@ -38,7 +38,7 @@ export class Autenticacao {
             this.router.navigate(["/home"]);
           })
       )
-      .catch((err: Error) => console.log(err));
+      .catch((err: Error) => err.message);
   }
 
   public autenticado(): boolean {
@@ -49,6 +49,21 @@ export class Autenticacao {
       this.token_id = localStorage.getItem("idToken");
     }
 
+    if (this.token_id === undefined) {
+      this.router.navigate(["/"]);
+    }
+
     return this.token_id !== undefined;
+  }
+
+  public sair(): void {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        localStorage.removeItem("idToken");
+        this.token_id = undefined;
+        this.router.navigate(["/"]);
+      });
   }
 }

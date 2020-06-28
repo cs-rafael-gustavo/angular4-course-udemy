@@ -1,7 +1,15 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 import { Autenticacao } from "../../../service/autenticacao/autenticacao.service";
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  keyframes,
+  state,
+} from "@angular/animations";
 
 @Component({
   selector: "app-login",
@@ -14,9 +22,11 @@ export class LoginComponent implements OnInit {
   >();
 
   public formulario: FormGroup = new FormGroup({
-    email: new FormControl(null),
-    senha: new FormControl(null),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    senha: new FormControl(null, [Validators.minLength(6)]),
   });
+
+  public mensagemErro: string = "";
 
   constructor(private autenticacao: Autenticacao) {}
 
@@ -27,9 +37,12 @@ export class LoginComponent implements OnInit {
   }
 
   public autenticar(): void {
-    this.autenticacao.autenticar(
-      this.formulario.value.email,
-      this.formulario.value.senha
-    );
+    this.autenticacao
+      .autenticar(this.formulario.value.email, this.formulario.value.senha)
+      .then((res: any) => {
+        if (res !== undefined) {
+          this.mensagemErro = res;
+        }
+      });
   }
 }

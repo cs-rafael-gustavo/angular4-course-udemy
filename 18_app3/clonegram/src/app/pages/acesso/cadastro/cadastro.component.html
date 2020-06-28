@@ -35,16 +35,28 @@
           formControlName="senha"
         />
       </div>
-      <button type="submit" class="btn btn-primary btn-sm btn-block">
+      <button
+        type="submit"
+        class="btn btn-primary btn-sm btn-block"
+        [disabled]="!formulario.valid"
+      >
         Cadastre-se
       </button>
     </form>
     <hr />
 
-    <p class="small text-center">
+    <p
+      class="small text-center"
+      *ngIf="mensagemErro === ''; else mostraMensagem"
+    >
       Ao cadastrar-se, você concorda com <br />nossos <b>Termos</b> e
       <b>Política de Privacidade</b>.
     </p>
+    <ng-template #mostraMensagem>
+      <p class="small text-danger text-center">
+        {{ mensagemErro }}
+      </p>
+    </ng-template>
   </div>
 </div>
 <br />

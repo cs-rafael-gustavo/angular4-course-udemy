@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Usuario } from "../../../shared/model/usuario.model";
 
 import { Autenticacao } from "../../../service/autenticacao/autenticacao.service";
@@ -15,11 +15,16 @@ export class CadastroComponent implements OnInit {
   >();
 
   public formulario: FormGroup = new FormGroup({
-    email: new FormControl(null),
-    nome_completo: new FormControl(null),
-    nome_usuario: new FormControl(null),
-    senha: new FormControl(null),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    nome_completo: new FormControl(null, [Validators.required]),
+    nome_usuario: new FormControl(null, [Validators.required]),
+    senha: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
   });
+
+  public mensagemErro: string = "";
 
   constructor(private autenticacao: Autenticacao) {}
 
@@ -37,8 +42,8 @@ export class CadastroComponent implements OnInit {
       this.formulario.value.senha
     );
 
-    this.autenticacao
-      .cadastrarUsuario(usuario)
-      .then((res: any) => this.exibirPainelLogin());
+    this.autenticacao.cadastrarUsuario(usuario).then((res: any) => {
+      res !== undefined ? (this.mensagemErro = res) : this.exibirPainelLogin();
+    });
   }
 }
