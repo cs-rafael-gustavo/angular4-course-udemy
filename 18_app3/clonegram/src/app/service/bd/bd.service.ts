@@ -40,6 +40,7 @@ export class Bd {
       firebase
         .database()
         .ref(`publicacoes/${btoa(emailUsuario)}`)
+        .orderByKey()
         .once("value")
         .then((snapshot: any) => {
           let publicacoes: Array<any> = [];
