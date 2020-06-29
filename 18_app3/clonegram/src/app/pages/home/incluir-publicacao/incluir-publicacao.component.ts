@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Bd } from "../../../service/bd/bd.service";
 import * as firebase from "firebase";
@@ -21,6 +21,10 @@ export class IncluirPublicacaoComponent implements OnInit {
   public formulario: FormGroup = new FormGroup({
     titulo: new FormControl(null),
   });
+
+  @Output() public atualizarTimeline: EventEmitter<any> = new EventEmitter<
+    any
+  >();
 
   constructor(private bd: Bd, private progresso: Progresso) {}
 
@@ -54,6 +58,8 @@ export class IncluirPublicacaoComponent implements OnInit {
 
       if (this.progresso.status === "concluido") {
         this.progressoPublicacao = "concluido";
+
+        this.atualizarTimeline.emit();
 
         continua.next(false);
       }
